@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Update = () => {
     const [id,setId] = useState(0)
@@ -13,7 +13,6 @@ const Update = () => {
        setId(localStorage.getItem("id"));
        setName(localStorage.getItem("name"));
        setEmail(localStorage.getItem("email"));
-
    },[])
 
 
@@ -54,6 +53,9 @@ const Update = () => {
   </div>
   
   <button type="submit" className="btn btn-primary" onClick={handleUpdate}>Update</button>
+  <Link to="/read">
+    <button className="btn btn-secondary">Back</button>
+    </Link>
 </form>
     </div>
   )

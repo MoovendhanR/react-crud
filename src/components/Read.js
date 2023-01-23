@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Read = () => {
 const [data,setData]=useState([]);
+const [tabledark , setTabledark] = useState("")
 
 
 
@@ -36,9 +37,32 @@ const setToLocalStorage=(ele) => {
 
   return (
     <div>
-        <h2>Read</h2>
-       
-<table className="table">
+    <div className="form-switch">
+  <input 
+   className="form-check-input" 
+   type="checkbox" 
+   onClick={()=>{
+    if(tabledark === "table-dark"){
+        setTabledark("");
+    }else{
+        setTabledark("table-dark")
+    }
+   }}
+   
+  />
+    <label class="form-check-label" for="flexSwitchCheckChecked">Mode</label>
+
+</div>
+        <br/>
+     <div className="d-flex justify-content-between m-2">
+    <h2>Read Data</h2>
+    <Link to="/">
+    <button className="btn btn-secondary">Create Data</button>
+    </Link>
+        </div> 
+        <br/>
+
+<table className={`table ${tabledark}`}>
   <thead>
     <tr>
       <th scope="col">#</th>

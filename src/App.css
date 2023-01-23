@@ -37,3 +37,8 @@
     transform: rotate(360deg);
   }
 }
+
+.form-switch{
+  margin-right:80%;
+  margin-top: 5%;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Create = () => {
 
    const [name,setName] = useState("");
@@ -25,7 +25,18 @@ const Create = () => {
   }
 
   return <>
+    <div className="form-check form-switch">
+  <input className="form-check-input" type="checkbox" />
+</div>
+    <div className="d-flex justify-content-between m-2">
     <h2>Create</h2>
+    <Link to="/read">
+    <button className="btn btn-info">Show Data</button>
+    </Link>
+        </div>   
+        <br/> 
+        <br/>
+
     <form>
     <div className="mb-3">
     <label  className="form-label">Name</label>
