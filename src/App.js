@@ -1,11 +1,10 @@
 import './App.css';
+import Create from './components/Create';
 
 function App() {
   return (
     <div className="App">
-         <h1>welcome!</h1>
-         <button type="button" class="btn btn-primary">Primary</button>
-
+         <Create/>
     </div>
   );
 }
