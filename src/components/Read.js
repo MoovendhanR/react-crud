@@ -1,8 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Read = () => {
 const [data,setData]=useState([]);
+
+
+
 const getData = async()=>{
 await axios.get(`https://63ce67f9d2e8c29a9bd5d9dc.mockapi.io/react-crud`)
 .then((res)=>setData(res.data))
@@ -21,6 +25,13 @@ function handleDelete(id){
 useEffect(()=>{
     getData()
 },[])
+
+const setToLocalStorage=(ele) => {
+       localStorage.setItem("id",ele.id);
+       localStorage.setItem("name",ele.name);
+       localStorage.setItem("email",ele.email);
+
+}
 
 
   return (
@@ -42,13 +53,17 @@ useEffect(()=>{
   {
     data.map((ele)=>{
         return(
-            <>
-  <tbody>
+<>
+  <tbody >
     <tr>
       <td>{ele.id}</td>
       <td>{ele.name}</td>
       <td>{ele.email}</td>
-      <td><button className="btn btn-success">Edit</button></td>
+      <td>
+      <Link to="/update">
+        <button className="btn btn-success" onClick={()=>setToLocalStorage(ele)}>Edit</button>
+      </Link>
+        </td>
       <td><button className="btn btn-danger" onClick={()=>handleDelete(ele.id)}>Delete</button></td>
     </tr>
     
