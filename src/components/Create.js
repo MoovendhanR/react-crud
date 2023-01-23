@@ -25,9 +25,7 @@ const Create = () => {
   }
 
   return <>
-    <div className="form-check form-switch">
-  <input className="form-check-input" type="checkbox" />
-</div>
+  
     <div className="d-flex justify-content-between m-2">
     <h2>Create</h2>
     <Link to="/read">
