@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Create = () => {
 
    const [name,setName] = useState("");
    const [email,setEmail] = useState("");
-
+   
+   const navigate =useNavigate()
    
    const header = {"Access-Control-Allow-Origin":"*"}
    const handleSubmit =(e)=>{
@@ -17,14 +19,16 @@ const Create = () => {
             header
         },
         
-    )
+    ).then(()=>{
+        navigate("/read")
+    })
   }
 
   return <>
     <h2>Create</h2>
     <form>
     <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Name</label>
+    <label  className="form-label">Name</label>
     <input 
     type="text" 
     className="form-control"
@@ -32,7 +36,7 @@ const Create = () => {
     />
   </div>
   <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Email address</label>
+    <label  className="form-label">Email address</label>
     <input 
     type="email" 
     className="form-control"  
