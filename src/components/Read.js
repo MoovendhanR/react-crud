@@ -11,6 +11,16 @@ await axios.get(`https://63ce67f9d2e8c29a9bd5d9dc.mockapi.io/react-crud`)
 
 
 
+function handleDelete(id){
+    axios.delete(`https://63ce67f9d2e8c29a9bd5d9dc.mockapi.io/react-crud/${id}`)
+    .then(()=>{
+        getData()
+    })
+    console.log(id)
+}
+useEffect(()=>{
+    getData()
+},[])
 
 
   return (
@@ -39,7 +49,7 @@ await axios.get(`https://63ce67f9d2e8c29a9bd5d9dc.mockapi.io/react-crud`)
       <td>{ele.name}</td>
       <td>{ele.email}</td>
       <td><button className="btn btn-success">Edit</button></td>
-      <td><button className="btn btn-danger" >Delete</button></td>
+      <td><button className="btn btn-danger" onClick={()=>handleDelete(ele.id)}>Delete</button></td>
     </tr>
     
   </tbody>
